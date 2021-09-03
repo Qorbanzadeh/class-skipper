@@ -4,6 +4,9 @@
         -   production code
 *)
 
+-- make the working dir executable
+do shell script "chmod +x " & workingDir & "*"
+
 -- ask for the environment mode from user
 set envModeInput to display dialog "Choose the mode" default answer "test"
 
