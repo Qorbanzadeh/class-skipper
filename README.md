@@ -11,3 +11,4 @@ TODO:
 - [ ] test code
 - [ ] production code
 - [ ] ask the user to enter the meeting addrress (test or production)
+- [ ] chrome support
