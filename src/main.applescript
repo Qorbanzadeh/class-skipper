@@ -1,29 +1,42 @@
-(*
-    TODO:
-        -   test code
-        -   production code
-*)
+-- environment mode
+set envMode to displayDialog("Choose the mode: test/prod", "test")
 
--- make the working dir executable
-do shell script "chmod +x " & workingDir & "*"
 
--- ask for the environment mode from user
-set envModeInput to display dialog "Choose the mode" default answer "test"
 
-if button returned of envModeInput is equal to "Cancel" then
-    return
-else
-    if the text returned of envModeInput is equal to "prod" then
-        try
-            -- production code
-        on error errorText
-            display alert "ERROR!" message errorText
-        end try
+on mainFunc(mode)
+        if mode is equal to "prod" then
+            try
+                displayAlert("Sript is running on:", "Production code")
+                (*
+                    TODO: write the prod code here!
+                *)
+            on error errorText
+                displayAlert("ERROR!", errorText)
+            end try
+        else
+            try
+                displayAlert("Sript is running on:", "Test code")
+                (*
+                    TODO: write the test code here!
+                *)
+            on error errorText
+                displayAlert("ERROR!", errorText)
+            end try
+        end if
+end mainFunc
+
+on displayAlert(type, msg)
+    display alert type message msg
+end displayAlert
+
+on displayDialog(msg, defaultAnswer)
+    set result to display dialog msg default answer defaultAnswer
+    if the button returned of result is equal to "OK" then
+        return the text returned of result
     else
-        try
-            -- test code
-        on error errorText
-            display alert "ERROR!" message errorText
-        end try
+        return
     end if
-end if
+end displayDialog
+
+-- entry point
+mainFunc(envMode)
