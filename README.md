@@ -4,7 +4,7 @@ It's a simple applescript program that will interact with your school's class or
 
 PS: I'm not a professional AppleScript programmer! I just read the documentation and wrote this program.
 
-⚠️: This is not ready to be used yet.
+⚠️ : This is not ready to be used yet.
 
 TODO:
 
