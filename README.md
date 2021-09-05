@@ -4,6 +4,6 @@ It's a simple applescript program that will interact with your school's class or
 
 TODO:
 
-    - [ ] test code
-    - [ ] production code
-    - [ ] ask the user to enter the meeting addrress (test or production)
+- [ ] test code
+- [ ] production code
+- [ ] ask the user to enter the meeting addrress (test or production)
