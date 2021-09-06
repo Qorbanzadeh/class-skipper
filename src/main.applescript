@@ -1,9 +1,12 @@
 -- environment mode
 set envMode to displayDialog("Choose the mode: test/prod", "test")
 
+-- working directory
+set workingDir to displayDialog("Choose the working directory:", "~/Desktop/")
 
 
-on mainFunc(mode)
+
+on mainFunc(mode, workingDir)
         if mode is equal to "prod" then
             try
                 displayAlert("Sript is running on:", "Production code")
@@ -39,4 +42,4 @@ on displayDialog(msg, defaultAnswer)
 end displayDialog
 
 -- entry point
-mainFunc(envMode)
+mainFunc(envMode, workingDir)
