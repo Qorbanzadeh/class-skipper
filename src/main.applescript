@@ -7,26 +7,31 @@ set workingDir to displayDialog("Choose the working directory:", "~/Desktop/")
 
 
 on mainFunc(mode, workingDir)
-        if mode is equal to "prod" then
-            try
-                displayAlert("Sript is running on:", "Production code")
-                (*
-                    TODO: write the prod code here!
-                *)
-            on error errorText
-                displayAlert("ERROR!", errorText)
-            end try
-        else
-            try
-                displayAlert("Sript is running on:", "Test code")
-                (*
-                    TODO: write the test code here!
-                *)
-            on error errorText
-                displayAlert("ERROR!", errorText)
-            end try
-        end if
+    setFilesPermission(workingDir)
+    if mode is equal to "prod" then
+        try
+            displayAlert("Sript is running on:", "Production code")
+            (*
+                TODO: write the prod code here!
+            *)
+        on error errorText
+            displayAlert("ERROR!", errorText)
+        end try
+    else
+        try
+            displayAlert("Sript is running on:", "Test code")
+            (*
+                TODO: write the test code here!
+            *)
+        on error errorText
+            displayAlert("ERROR!", errorText)
+        end try
+    end if
 end mainFunc
+
+on setFilesPermission(dir)
+do shell script "chmod -R 777 " & dir
+end setFilesPermission
 
 on displayAlert(type, msg)
     display alert type message msg
